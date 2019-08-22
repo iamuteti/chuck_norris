@@ -31,8 +31,14 @@
         <tr>
             <td>{{$vote->id}}</td>
             <td>{{$vote->joke->title}}</td>
-            <td>NA</td>
-            <td>{{$vote->vote}}</td>
+            <td>{{$vote->juror->first_name}} {{$vote->juror->last_name}}</td>
+            <td>
+            @if($vote->vote == 1)
+                        Yes
+                    @elseif ($vote->vote == 2)
+                        No
+                    @endif
+            </td>
             <td><a href="{{ route('votes.edit',$vote->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
                 <form action="{{ route('votes.destroy', $vote->id)}}" method="post">
