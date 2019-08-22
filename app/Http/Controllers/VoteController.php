@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Vote;
+use App\Juror;
+use App\Joke;
 
 class VoteController extends Controller
 {
@@ -26,7 +28,10 @@ class VoteController extends Controller
      */
     public function create()
     {
-        //
+        $jokes = Joke::all();
+        $jurors = Juror::all();
+
+                return view('votes.create', compact(['jokes', 'jurors']));
     }
 
     /**
@@ -37,7 +42,20 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+                                'joke_id'=>'required',
+                                'juror_id'=>'required',
+                                'vote'=>'required',
+                              ]);
+                              $vote = new Vote([
+                                'joke_id' => $request->get('joke_id'),
+                                'juror_id' => $request->get('juror_id'),
+                                'vote' => $request->get('vote')
+                              ]);
+
+                              $vote->save();
+
+                              return redirect('/votes')->with('success', 'Vote has been added');
     }
 
     /**
@@ -82,6 +100,9 @@ class VoteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $vote = Vote::find($id);
+                             $joke->delete();
+
+                             return redirect('/votes')->with('success', 'Vote has been deleted Successfully');
     }
 }
