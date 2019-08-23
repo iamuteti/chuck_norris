@@ -23,7 +23,6 @@
           <td>Joke</td>
           <td>Juror</td>
           <td>Vote</td>
-          <td colspan="2">Action</td>
         </tr>
     </thead>
     <tbody>
@@ -38,13 +37,6 @@
                     @elseif ($vote->vote == 2)
                         No
                     @endif
-            </td>
-            <td>
-                <form action="{{ route('vote-destroy', $vote->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
             </td>
         </tr>
         @endforeach
