@@ -27,6 +27,15 @@
             <li class="nav-item">
                     <a class="nav-link" href="{{route('category-create')}}">Category Add</span></a>
                   </li>
+      <li class="nav-item">
+                    <a class="nav-link" href="{{route('jurors')}}">Jurors</a>
+                  </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{route('juror-create')}}">Juror Add</span></a>
+                              </li>
+            <li class="nav-item">
+                          <a class="nav-link" href="{{route('votes-view')}}">Votes</a>
+                        </li>
     </ul>
 
   </div>

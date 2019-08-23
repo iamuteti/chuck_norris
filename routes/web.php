@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'JokeController@index');
 
 Route::get('/categories', 'CategoryController@index')->name('categories');
 Route::get('/categories/create', 'CategoryController@create')->name('category-create');
@@ -28,5 +26,5 @@ Route::get('/jurors', 'JurorController@index')->name('jurors');
 Route::get('/jurors/create', 'JurorController@create')->name('juror-create');
 Route::get('/jurors/{juror}/edit', 'JurorController@edit')->name('juror-edit');
 
-Route::get('/votes', 'VoteController@index');
-Route::get('/votes/create', 'VoteController@create');
+Route::get('/votes', 'VoteController@index')->name('votes-view');
+Route::get('/votes/create', 'VoteController@create')->name('votes-create');
