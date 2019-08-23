@@ -21,6 +21,13 @@ class VoteController extends Controller
                 return view('votes.index', compact('votes'));
     }
 
+            public function all()
+            {
+                $jokes = Vote::with(['joke', 'juror'])->get();
+
+                return $jokes;
+            }
+
     /**
      * Show the form for creating a new resource.
      *

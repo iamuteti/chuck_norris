@@ -20,7 +20,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('categories.store') }}">
+      <form method="post" action="{{ URL::route('categories') }}">
           <div class="form-group">
               @csrf
               <label for="name">Name:</label>

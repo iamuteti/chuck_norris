@@ -21,7 +21,6 @@
         <tr>
           <td>ID</td>
           <td>Category Name</td>
-          <td colspan="2">Action</td>
         </tr>
     </thead>
     <tbody>
@@ -29,9 +28,12 @@
         <tr>
             <td>{{$category->id}}</td>
             <td>{{$category->name}}</td>
-            <td><a href="{{ route('categories.edit',$category->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
-                <form action="{{ route('categories.destroy', $category->id)}}" method="post">
+            <a href="{{route('joke-category', ['category' => $category->id])}}" class="btn btn-success">Jokes</a>
+                            <a href="{{route('category-edit', ['category' => $category->id])}}" class="btn btn-primary">Edit</a>
+                            </td>
+            <td>
+                <form action="{{route('category-destroy', ['category' => $category->id])}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>

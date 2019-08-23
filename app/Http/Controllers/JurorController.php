@@ -19,6 +19,14 @@ class JurorController extends Controller
                 return view('jurors.index', compact('jurors'));
     }
 
+
+            public function all()
+            {
+                $jokes = Juror::all();
+
+                return $jokes;
+            }
+
     /**
      * Show the form for creating a new resource.
      *

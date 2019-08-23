@@ -15,9 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/jokes/category/{name}', 'JokeController@byCategory');
+Route::get('/categories', 'CategoryController@index')->name('categories');
+Route::get('/categories/create', 'CategoryController@create')->name('category-create');
+Route::get('/categories/{category}/edit', 'CategoryController@edit')->name('category-edit');
 
-Route::resource('categories', 'CategoryController');
-Route::resource('jokes', 'JokeController');
-Route::resource('jurors', 'JurorController');
-Route::resource('votes', 'VoteController');
+Route::get('/jokes', 'JokeController@index')->name('jokes');
+Route::get('/jokes/create', 'JokeController@create')->name('joke-create');
+Route::get('/jokes/{joke}/edit', 'JokeController@edit')->name('joke-edit');
+Route::get('/jokes/{id}/category', 'JokeController@byCategory')->name('joke-category');
+
+Route::get('/jurors', 'JurorController@index')->name('jurors');
+Route::get('/jurors/create', 'JurorController@create')->name('juror-create');
+Route::get('/jurors/{juror}/edit', 'JurorController@edit')->name('juror-edit');
+
+Route::get('/votes', 'VoteController@index');
+Route::get('/votes/create', 'VoteController@create');

@@ -31,9 +31,9 @@
             <td>{{$juror->id}}</td>
             <td>{{$juror->first_name}}</td>
             <td>{{$juror->last_name}}</td>
-            <td><a href="{{ route('jurors.edit',$juror->id)}}" class="btn btn-primary">Edit</a></td>
+            <td><a href="{{ route('juror-edit',$juror->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
-                <form action="{{ route('jurors.destroy', $juror->id)}}" method="post">
+                <form action="{{ route('juror-destroy', $juror->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>

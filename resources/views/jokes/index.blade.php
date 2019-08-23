@@ -37,9 +37,9 @@
                 @endforeach
             </td>
             <td>{{$joke->date}}</td>
-            <td><a href="{{ route('jokes.edit',$joke->id)}}" class="btn btn-primary">Edit</a></td>
+            <td><a href="{{ route('joke-edit', ['joke' => $joke->id])}}" class="btn btn-primary">Edit</a></td>
             <td>
-                <form action="{{ route('jokes.destroy', $joke->id)}}" method="post">
+                <form action="{{ route('joke-destroy', $joke->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>

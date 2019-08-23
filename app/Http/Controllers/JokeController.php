@@ -21,6 +21,21 @@ class JokeController extends Controller
         return view('jokes.index', compact('jokes'));
     }
 
+        public function all()
+        {
+            $jokes = Joke::with(['categories'])->get();
+
+            return $jokes;
+        }
+
+                public function random()
+                {
+                    $joke = Joke::with(['categories'])->orderByRaw("RAND()")->first();
+                    // $joke = Joke::orderByRaw("RAND()")->first();
+
+                    return $joke;
+                }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -121,6 +136,14 @@ class JokeController extends Controller
 
                      return redirect('/jokes')->with('success', 'Joke has been deleted Successfully');
     }
+
+    public function listByCategory($id) {
+            $jokes = Joke::whereHas('categories', function ($q) use ($id) {
+                $q->where('category_id', $id);
+            })->get();
+
+            return $jokes;
+        }
 
     public function byCategory($category) {
         $jokes = Joke::whereHas('categories', function ($q) use ($category) {

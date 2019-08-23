@@ -39,9 +39,8 @@
                         No
                     @endif
             </td>
-            <td><a href="{{ route('votes.edit',$vote->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
-                <form action="{{ route('votes.destroy', $vote->id)}}" method="post">
+                <form action="{{ route('vote-destroy', $vote->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>

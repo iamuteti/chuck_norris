@@ -22,7 +22,6 @@
           <td>ID</td>
           <td>Title</td>
           <td>Categories</td>
-          <td colspan="2">Action</td>
         </tr>
     </thead>
     <tbody>
@@ -34,14 +33,6 @@
             @foreach($joke->categories as $category)
                 {{ $category->name }},
                 @endforeach
-            </td>
-            <td><a href="{{ route('jokes.edit',$joke->id)}}" class="btn btn-primary">Edit</a></td>
-            <td>
-                <form action="{{ route('jokes.destroy', $joke->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
             </td>
         </tr>
         @endforeach

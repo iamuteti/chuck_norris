@@ -20,7 +20,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('votes.store') }}">
+      <form method="post" action="{{ route('votes') }}">
           <div class="form-group">
               @csrf
               <select class="form-control" name="vote">
