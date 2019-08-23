@@ -20,7 +20,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ URL::route('categories') }}">
+      <form method="post" action="{{ URL::route('category-api-create') }}">
           <div class="form-group">
               @csrf
               <label for="name">Name:</label>

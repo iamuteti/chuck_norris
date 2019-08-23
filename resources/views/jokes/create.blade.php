@@ -20,7 +20,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('jokes') }}">
+      <form method="post" action="{{ route('joke-api-create') }}">
           <div class="form-group">
               @csrf
               <label for="name">Title:</label>

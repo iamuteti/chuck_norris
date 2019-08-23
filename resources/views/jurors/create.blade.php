@@ -20,7 +20,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('jurors') }}">
+      <form method="post" action="{{ route('juror-api-create') }}">
           <div class="form-group">
               @csrf
               <label for="name">First Name:</label>

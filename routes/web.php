@@ -27,4 +27,3 @@ Route::get('/jurors/create', 'JurorController@create')->name('juror-create');
 Route::get('/jurors/{juror}/edit', 'JurorController@edit')->name('juror-edit');
 
 Route::get('/votes', 'VoteController@index')->name('votes-view');
-Route::get('/votes/create', 'VoteController@create')->name('votes-create');

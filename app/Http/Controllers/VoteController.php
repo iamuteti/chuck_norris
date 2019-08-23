@@ -54,15 +54,12 @@ class VoteController extends Controller
                                 'juror_id'=>'required',
                                 'vote'=>'required',
                               ]);
-                              $vote = new Vote([
-                                'joke_id' => $request->get('joke_id'),
-                                'juror_id' => $request->get('juror_id'),
-                                'vote' => $request->get('vote')
-                              ]);
+                              $vote = Vote::updateOrCreate(['juror_id' => $request->juror_id, 'joke_id' => $request->joke_id], [
+                                                                    'vote' => $request->vote
+                                                                ]);
+                                                                $vote->save();
 
-                              $vote->save();
-
-                              return redirect('/votes')->with('success', 'Vote has been added');
+                                                                return $vote;
     }
 
     /**
