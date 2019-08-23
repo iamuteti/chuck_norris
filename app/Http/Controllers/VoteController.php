@@ -105,7 +105,7 @@ class VoteController extends Controller
     public function destroy($id)
     {
         $vote = Vote::find($id);
-                             $joke->delete();
+                             $vote->delete();
 
                              return redirect('/votes')->with('success', 'Vote has been deleted Successfully');
     }
